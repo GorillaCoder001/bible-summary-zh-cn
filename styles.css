@@ -76,6 +76,8 @@ h1 span { color: var(--gold); }
 .primary-button { display: inline-flex; align-items: center; gap: 1.3rem; padding: .82rem 1.25rem .82rem 1.35rem; color: var(--navy); background: var(--gold); border: 1px solid var(--gold); border-radius: 3rem; font-weight: 700; text-decoration: none; }
 .primary-button span { display: grid; width: 31px; height: 31px; place-items: center; background: var(--navy); color: var(--gold); border-radius: 50%; }
 .primary-button:hover { background: var(--gold-soft); }
+.hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.text-link { color: var(--gold-soft); font-size: .9rem; font-weight: 600; text-underline-offset: .3rem; }
 
 .hero-map { position: relative; display: grid; gap: .3rem; padding: 1rem 0; }
 .map-line { position: absolute; left: 27px; top: 10%; bottom: 10%; width: 1px; background: linear-gradient(var(--gold), rgba(240,199,120,.08)); }
@@ -152,6 +154,34 @@ dialog::backdrop { background: rgba(2, 8, 19, .78); backdrop-filter: blur(5px); 
 .insight-section > span { color: var(--blue); font-size: .76rem; font-weight: 700; letter-spacing: .1em; }
 .insight-section.application > span { color: var(--gold); }
 .insight-section p { margin: .45rem 0 0; color: #c0cbdd; font-size: .92rem; line-height: 1.8; }
+.dialog-study-link { display: inline-flex; margin-top: 1.4rem; color: var(--navy); background: var(--gold); padding: .72rem 1.05rem; border-radius: 2rem; font-size: .84rem; font-weight: 700; text-decoration: none; }
+
+.study-page { min-height: 100vh; background: #07142c; }
+.study-shell { display: grid; grid-template-columns: 300px minmax(0, 820px); gap: 4rem; max-width: var(--max); margin: 0 auto; padding: 3.5rem 0 7rem; }
+.study-sidebar { position: sticky; top: 110px; align-self: start; max-height: calc(100vh - 135px); overflow-y: auto; padding-right: 1rem; scrollbar-color: #425577 transparent; }
+.study-sidebar-heading h1 { margin: 0; font-family: "Noto Serif SC", serif; font-size: 2.2rem; }
+.study-sidebar-heading > p:last-child { color: var(--muted); font-size: .86rem; }
+.study-select-label { display: block; margin: 1rem 0 .35rem; color: #93a6c3; font-size: .75rem; font-weight: 700; letter-spacing: .08em; }
+.study-select { width: 100%; min-height: 45px; padding: 0 .75rem; color: var(--ink); background: #0e2245; border: 1px solid #2b3e61; border-radius: .55rem; }
+.chapter-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: .4rem; margin-top: 1rem; }
+.chapter-list button { aspect-ratio: 1; color: #aab8ce; background: #0b1b39; border: 1px solid #263a5e; border-radius: .45rem; cursor: pointer; font-size: .78rem; }
+.chapter-list button:hover, .chapter-list button.active { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+.study-content { min-width: 0; }
+.study-content-header { padding-bottom: 2rem; border-bottom: 1px solid var(--line); }
+.study-breadcrumb { margin: 0 0 .7rem; color: var(--gold); font-size: .78rem; font-weight: 700; letter-spacing: .1em; }
+.study-content h2 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1.25; }
+.study-subtitle { margin: .7rem 0 0; color: var(--blue); font-size: 1.08rem; }
+.study-note { padding-top: 1.2rem; }
+.study-note h3 { margin: 2.7rem 0 .8rem; padding-top: 1.2rem; color: var(--gold-soft); border-top: 1px solid var(--line); font-size: 1.45rem; }
+.study-note h4 { margin: 2rem 0 .7rem; color: #edf3ff; font-family: "Noto Sans SC", sans-serif; font-size: 1.02rem; }
+.study-note p { margin: .65rem 0; color: #b9c7dc; font-size: 1rem; line-height: 1.9; }
+.study-highlight { padding: 1rem 1.1rem; color: #dce8fb !important; background: rgba(128,184,255,.07); border-left: 3px solid var(--blue); border-radius: .2rem .6rem .6rem .2rem; }
+.study-point { padding-left: 1rem; border-left: 2px solid #415677; }
+.chapter-pagination { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.chapter-pagination button { padding: .7rem 1rem; color: var(--gold-soft); background: transparent; border: 1px solid #354968; border-radius: 2rem; cursor: pointer; }
+.chapter-pagination button:hover:not(:disabled) { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+.chapter-pagination button:disabled { opacity: .35; cursor: not-allowed; }
+.study-disclaimer { margin-top: 2.5rem; color: #788aa7; font-size: .78rem; }
 
 @media (max-width: 900px) {
   .site-header { padding-inline: 24px; }
@@ -162,6 +192,9 @@ dialog::backdrop { background: rgba(2, 8, 19, .78); backdrop-filter: blur(5px); 
   .testament-grid { grid-template-columns: 1fr; }
   .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .reading { grid-template-columns: 1fr; gap: 2rem; }
+  .study-shell { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 24px 5rem; }
+  .study-sidebar { position: static; max-height: none; padding: 0; }
+  .chapter-list { grid-template-columns: repeat(10, 1fr); }
 }
 
 @media (max-width: 580px) {
@@ -176,6 +209,8 @@ dialog::backdrop { background: rgba(2, 8, 19, .78); backdrop-filter: blur(5px); 
   .book-card { min-height: 220px; }
   .dialog-body { padding: 2rem 1.4rem 1.4rem; }
   .dialog-details { grid-template-columns: 1fr; }
+  .chapter-list { grid-template-columns: repeat(7, 1fr); }
+  .study-content h2 { font-size: 2rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
