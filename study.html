@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="简体中文圣经逐章研读笔记，包含经文脉络、福音连接、核心信息和生活反思。" />
+    <meta name="theme-color" content="#08152d" />
+    <title>逐章研读｜圣经脉络</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308152d'/%3E%3Cpath d='M14 16h15c5 0 9 4 9 9v25c-2-3-5-5-10-5H14V16Zm36 0H35c-5 0-9 4-9 9v20h10c5 0 9 2 14 5V16Z' fill='%23f0c778'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="study-page">
+    <a class="skip-link" href="#study-content">跳到研读内容</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="返回圣经脉络首页"><span class="brand-mark" aria-hidden="true">书</span><span>圣经脉络</span></a>
+      <nav aria-label="主要导航"><a href="index.html">书卷导读</a><a href="study.html" aria-current="page">逐章研读</a></nav>
+    </header>
+
+    <main class="study-shell">
+      <aside class="study-sidebar" aria-label="研读导航">
+        <div class="study-sidebar-heading">
+          <p class="eyebrow">逐章研读</p>
+          <h1>研读笔记</h1>
+          <p>从背景与段落脉络，到福音连接和生活反思。</p>
+        </div>
+        <label class="study-select-label" for="book-select">选择书卷</label>
+        <select id="book-select" class="study-select"></select>
+        <label class="study-select-label" for="chapter-select">选择章节</label>
+        <select id="chapter-select" class="study-select"></select>
+        <div id="chapter-list" class="chapter-list" aria-label="章节列表"></div>
+      </aside>
+
+      <article class="study-content" id="study-content" tabindex="-1">
+        <div class="study-content-header">
+          <p class="study-breadcrumb" id="study-breadcrumb"></p>
+          <h2 id="study-title"></h2>
+          <p class="study-subtitle" id="study-subtitle"></p>
+        </div>
+        <div class="study-note" id="study-note"></div>
+        <nav class="chapter-pagination" aria-label="前后章节">
+          <button id="previous-chapter" type="button">← 上一章</button>
+          <button id="next-chapter" type="button">下一章 →</button>
+        </nav>
+        <p class="study-disclaimer">这些内容是帮助理解经文的研读笔记，不代替完整阅读圣经。遇到不同解释时，请结合上下文和可靠释经资料继续查考。</p>
+      </article>
+    </main>
+
+    <script src="study-data.js"></script>
+    <script src="study.js"></script>
+  </body>
+</html>
