@@ -182,6 +182,9 @@ dialog::backdrop { background: rgba(2, 8, 19, .78); backdrop-filter: blur(5px); 
 .chapter-pagination button:hover:not(:disabled) { color: var(--navy); background: var(--gold); border-color: var(--gold); }
 .chapter-pagination button:disabled { opacity: .35; cursor: not-allowed; }
 .study-disclaimer { margin-top: 2.5rem; color: #788aa7; font-size: .78rem; }
+.study-disclaimer a { color: #b58a3d; }
+.study-loading { color: #788aa7; padding: 2rem 0; }
+.study-error { color: #a13b35; padding: 1rem; border: 1px solid #d8aaa6; border-radius: 10px; background: #fff7f6; }
 
 @media (max-width: 900px) {
   .site-header { padding-inline: 24px; }

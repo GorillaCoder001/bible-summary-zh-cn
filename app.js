@@ -173,8 +173,7 @@ function renderBooks() {
 function openBook(index) {
   const book = books[index];
   const insight = insights[book[0]] || ["从本书在整本圣经中的位置理解其信息。", "思考这段信息如何改变今天的信念与行动。"];
-  const detailedBooks = new Set(["创世记", "马太福音", "马可福音", "路加福音"]);
-  const studyLink = detailedBooks.has(book[0]) ? `<a class="dialog-study-link" href="study.html?book=${encodeURIComponent(book[0])}&chapter=1">查看逐章研读笔记 →</a>` : "";
+  const studyLink = `<a class="dialog-study-link" href="study.html?book=${encodeURIComponent(book[0])}&chapter=1">查看逐章研读笔记 →</a>`;
   dialogContent.innerHTML = `<div class="dialog-body">
     <div class="dialog-kicker">${book[1]} · ${book[2]}</div>
     <h2 id="dialog-title">${book[0]}</h2>
