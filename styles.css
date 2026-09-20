@@ -60,6 +60,7 @@ nav a:hover, nav a:focus-visible { color: var(--gold-soft); }
 
 .hero {
   position: relative;
+  overflow: clip;
   display: grid;
   grid-template-columns: 1.06fr .94fr;
   gap: 5rem;
