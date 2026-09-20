@@ -67,6 +67,30 @@ const books = [
   ["启示录","新约","启示文学","羔羊得胜，万物更新","在逼迫与诱惑中，异象揭开属灵现实：被杀的羔羊已经得胜，最终除去邪恶，带来新天新地。","羔羊 · 得胜 · 新耶路撒冷","启示录 1–22章"]
 ];
 
+const englishNames = {
+  "创世记": "Genesis", "出埃及记": "Exodus", "利未记": "Leviticus", "民数记": "Numbers", "申命记": "Deuteronomy",
+  "约书亚记": "Joshua", "士师记": "Judges", "路得记": "Ruth", "撒母耳记上": "1 Samuel", "撒母耳记下": "2 Samuel",
+  "列王纪上": "1 Kings", "列王纪下": "2 Kings", "历代志上": "1 Chronicles", "历代志下": "2 Chronicles", "以斯拉记": "Ezra",
+  "尼希米记": "Nehemiah", "以斯帖记": "Esther", "约伯记": "Job", "诗篇": "Psalms", "箴言": "Proverbs",
+  "传道书": "Ecclesiastes", "雅歌": "Song of Songs", "以赛亚书": "Isaiah", "耶利米书": "Jeremiah", "耶利米哀歌": "Lamentations",
+  "以西结书": "Ezekiel", "但以理书": "Daniel", "何西阿书": "Hosea", "约珥书": "Joel", "阿摩司书": "Amos",
+  "俄巴底亚书": "Obadiah", "约拿书": "Jonah", "弥迦书": "Micah", "那鸿书": "Nahum", "哈巴谷书": "Habakkuk",
+  "西番雅书": "Zephaniah", "哈该书": "Haggai", "撒迦利亚书": "Zechariah", "玛拉基书": "Malachi", "马太福音": "Matthew",
+  "马可福音": "Mark", "路加福音": "Luke", "约翰福音": "John", "使徒行传": "Acts", "罗马书": "Romans",
+  "哥林多前书": "1 Corinthians", "哥林多后书": "2 Corinthians", "加拉太书": "Galatians", "以弗所书": "Ephesians", "腓立比书": "Philippians",
+  "歌罗西书": "Colossians", "帖撒罗尼迦前书": "1 Thessalonians", "帖撒罗尼迦后书": "2 Thessalonians", "提摩太前书": "1 Timothy", "提摩太后书": "2 Timothy",
+  "提多书": "Titus", "腓利门书": "Philemon", "希伯来书": "Hebrews", "雅各书": "James", "彼得前书": "1 Peter",
+  "彼得后书": "2 Peter", "约翰一书": "1 John", "约翰二书": "2 John", "约翰三书": "3 John", "犹大书": "Jude", "启示录": "Revelation"
+};
+
+function bookName(name) {
+  return englishNames[name] ? `${name} (${englishNames[name]})` : name;
+}
+
+function bookNameMarkup(name) {
+  return englishNames[name] ? `<span>${name}</span><small>(${englishNames[name]})</small>` : name;
+}
+
 const insights = {
   "创世记": ["这卷书解释世界为何美好却又破碎，也说明神从一开始就主动寻找并赐福人。亚伯拉罕的故事不是完美人物传，而是神在不完全的人身上守约的故事。", "当环境混乱或自己失败时，仍可学习信靠神的应许，并思考：我今天能怎样把祝福带给身边的人？"],
   "出埃及记": ["出埃及不只是脱离奴役，也是被带进与神的关系。救赎先于律法，顺服是蒙恩后的回应，不是赚取拯救的方法。", "辨认生活中辖制自己的事，并在已蒙恩的基础上选择顺服；也要留意被压迫和被忽略的人。"],
@@ -155,15 +179,15 @@ function renderBooks() {
     const matchesTestament = testament === "all" || book[1] === testament;
     const matchesCategory = category === "全部类别" || book[2] === category;
     const insightText = (insights[book[0]] || []).join(" ");
-    const matchesQuery = !query || `${book.join(" ")} ${insightText}`.toLowerCase().includes(query);
+    const matchesQuery = !query || `${book.join(" ")} ${englishNames[book[0]] || ""} ${insightText}`.toLowerCase().includes(query);
     return matchesTestament && matchesCategory && matchesQuery;
   });
 
   grid.innerHTML = filtered.map(book => {
     const index = books.indexOf(book);
-    return `<button class="book-card" type="button" data-index="${index}" aria-label="查看${book[0]}导读">
+    return `<button class="book-card" type="button" data-index="${index}" aria-label="查看${bookName(book[0])}导读">
       <span class="meta"><span>${book[1]} · ${book[2]}</span><span>${String(index + 1).padStart(2,"0")}</span></span>
-      <h3>${book[0]}</h3><p>${book[4]}</p><span class="open-label">查看导读 ↗</span>
+      <h3>${bookNameMarkup(book[0])}</h3><p>${book[4]}</p><span class="open-label">查看导读 ↗</span>
     </button>`;
   }).join("");
   resultCount.textContent = filtered.length === 66 ? "显示全部66卷书" : `找到 ${filtered.length} 卷书`;
@@ -176,7 +200,7 @@ function openBook(index) {
   const studyLink = `<a class="dialog-study-link" href="study.html?book=${encodeURIComponent(book[0])}&chapter=1">查看逐章研读笔记 →</a>`;
   dialogContent.innerHTML = `<div class="dialog-body">
     <div class="dialog-kicker">${book[1]} · ${book[2]}</div>
-    <h2 id="dialog-title">${book[0]}</h2>
+    <h2 id="dialog-title">${bookNameMarkup(book[0])}</h2>
     <p class="dialog-theme">${book[3]}</p>
     <p class="dialog-summary">${book[4]}</p>
     <div class="dialog-details"><div class="detail-box"><span>核心关键词</span><strong>${book[5]}</strong></div><div class="detail-box"><span>经文范围</span><strong>${book[6]}</strong></div></div>

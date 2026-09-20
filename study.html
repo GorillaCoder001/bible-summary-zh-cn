@@ -16,11 +16,19 @@
     <a class="skip-link" href="#study-content">跳到研读内容</a>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="返回圣经脉络首页"><span class="brand-mark" aria-hidden="true">书</span><span>圣经脉络</span></a>
-      <nav aria-label="主要导航"><a href="index.html">书卷导读</a><a href="study.html" aria-current="page">逐章研读</a></nav>
+      <div class="study-header-actions">
+        <nav aria-label="主要导航"><a href="index.html">书卷导读</a><a href="study.html" aria-current="page">逐章研读</a></nav>
+        <button class="study-menu-toggle" id="study-menu-toggle" type="button" aria-expanded="false" aria-controls="study-sidebar">
+          <span class="hamburger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="study-menu-label">快速导航</span>
+        </button>
+      </div>
     </header>
+    <button class="study-menu-backdrop" id="study-menu-backdrop" type="button" aria-label="关闭快速导航" hidden></button>
 
     <main class="study-shell">
-      <aside class="study-sidebar" aria-label="研读导航">
+      <aside class="study-sidebar" id="study-sidebar" aria-label="书卷与章节导航" tabindex="-1">
+        <button class="study-menu-close" id="study-menu-close" type="button" aria-label="关闭快速导航">×</button>
         <div class="study-sidebar-heading">
           <p class="eyebrow">逐章研读</p>
           <h1>研读笔记</h1>
@@ -34,6 +42,14 @@
       </aside>
 
       <article class="study-content" id="study-content" tabindex="-1">
+        <nav class="mobile-chapter-bar" aria-label="当前章节快速导航">
+          <button id="mobile-previous-chapter" type="button" aria-label="上一章">←</button>
+          <button class="mobile-current-chapter" id="mobile-study-menu" type="button" aria-expanded="false" aria-controls="study-sidebar">
+            <span id="mobile-current-book">选择书卷</span>
+            <strong id="mobile-current-chapter">选择章节</strong>
+          </button>
+          <button id="mobile-next-chapter" type="button" aria-label="下一章">→</button>
+        </nav>
         <div class="study-content-header">
           <p class="study-breadcrumb" id="study-breadcrumb"></p>
           <h2 id="study-title"></h2>
