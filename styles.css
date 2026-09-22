@@ -76,6 +76,7 @@ nav a:hover, nav a:focus-visible { color: var(--gold-soft); }
 .eyebrow { margin: 0 0 .9rem; color: var(--gold); font-size: .79rem; font-weight: 700; letter-spacing: .2em; }
 h1, h2, h3 { font-family: var(--font-display); }
 h1 { margin: 0; font-size: clamp(3.1rem, 6.2vw, 5.8rem); line-height: 1.11; letter-spacing: -.045em; }
+.hero h1 { font-size: clamp(3.1rem, 4.8vw, 4.45rem); white-space: nowrap; }
 h1 span { color: var(--gold); }
 .hero-intro { max-width: 600px; margin: 2rem 0 2.3rem; color: #b9c7de; font-size: 1.08rem; }
 .primary-button { display: inline-flex; align-items: center; gap: 1.3rem; padding: .82rem 1.25rem .82rem 1.35rem; color: var(--navy); background: var(--gold); border: 1px solid var(--gold); border-radius: 3rem; font-weight: 700; text-decoration: none; }
@@ -318,7 +319,7 @@ dialog::backdrop { background: rgba(2, 8, 19, .78); backdrop-filter: blur(5px); 
   .site-header { min-height: 68px; padding-inline: 16px; }
   .study-menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
   .study-menu-toggle { width: 44px; padding: 0 12px; }
-  h1 { font-size: 3.2rem; }
+  .hero h1 { font-size: clamp(2rem, 9.5vw, 3.2rem); }
   .hero { padding-top: 4rem; }
   .map-item { grid-template-columns: 50px 85px 1fr; }
   .testament-card { grid-template-columns: 80px 1fr; padding: 1.4rem; }
